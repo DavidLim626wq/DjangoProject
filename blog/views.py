@@ -1,20 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Post
 
-dummy_content = [
-    {
-        'author':'Ron Vibbentrop',
-        'title': 'Information',
-        'content': 'ナニホム屋以あいこかゆふしくき瀬遊ヌロツて',
-        'date_posted': 'Today'
-    },
-    {
-        'author':'Harry McGoring',
-        'title': 'Blog Post 2',
-        'content': 'Лорем ипсум долор сит амет',
-        'date_posted': 'Yesterday'
-    },
-]
+dummy_content = Post.objects.all()
 
 def home(request):
     context = {
