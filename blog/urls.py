@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PostListView, PostDetailView
+from .views import PostListView, PostDetailView, PostDetailJsonView
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
@@ -7,4 +7,5 @@ urlpatterns = [
     path('', PostListView.as_view(), name ='blog-home'),
     path('post/<int:pk>/', PostDetailView.as_view(), name="post-detail"),
     path('about/', views.about, name ='blog-about'),
+    path('posts/<int:pk>/', views.PostDetailJsonView.as_view(), name="post-json-detail")
 ]

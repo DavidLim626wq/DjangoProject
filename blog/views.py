@@ -41,6 +41,13 @@ class PostList(APIView):
         # return Response(serializer.data)
         return JsonResponse(serializer.data, safe=False)
 
+class PostDetailJsonView(APIView):
+
+    def get(self, request, pk):
+        posts = Post.objects.get(id = pk)
+        serializer = PostSerializer(posts)
+        return JsonResponse(serializer.data, safe=False)
+
 def about(request):
     return render(request, 'blog/about.html', {'title':'About'})
 
