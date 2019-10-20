@@ -7,10 +7,33 @@
       <div class="media-body">
         <div class="article-metadata">
           <a class="mr-2" href="#">{{ post.author }}</a>
-          <small class="text-muted">Posted on {{ post.date_posted|date:"j-M-Y" }} at {{ post.date_posted|date:"H:i" }}</small>
+          <small class="text-muted">
+            Posted on {{ post.date_posted|date:"j-M-Y" }} at {{ post.date_posted|date:"H:i" }}
+          </small>
         </div>
         <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+        <button hidden id="Hide">Hide</button><button id="readmore">Read_More</button>
+
         <p class="article-content">{{ post.content }}</p>
+
+        <script>
+            document.getElementById("readmore").onclick = function() {myFunction()};
+
+            function myFunction() {
+              $.getJSON( "posts/", function( data ) {
+                var items = [];
+                console.log(data);
+                $.each( data, function( key, val ) {
+                  items.push( "<div id='" + key + "'>" + val.content + "</div>" );
+                });
+
+                $( "<p/>", {
+                  "class": "post-preview",
+                  html: items.join( "" )
+                }).appendTo( ".article-content" );
+              });
+            }
+        </script>
       </div>
     </article>
     {% endfor %}
