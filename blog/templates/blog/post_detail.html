@@ -19,4 +19,9 @@
       </div>
     </article>
 
+    <h2>Comments:</h2>
+    {% for comment in object.comments.all %}
+    <p>{{ comment.cmnt }}</p>
+    {% endfor %}
+
   {% endblock%}
