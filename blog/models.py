@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
+from django.utils.text import slugify
 from django.contrib.auth.models import User
+
 
 
 class Post(models.Model):
@@ -9,6 +11,7 @@ class Post(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    slug = slugify(title)
 
     def __str__(self):
         return self.title

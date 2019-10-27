@@ -10,7 +10,6 @@
           <a class="mr-2" href="#">{{ object.author }}</a>
           <small class="text-muted">
             Posted on {{ object.date_posted|date:"j-M-Y" }} at {{ object.date_posted|date:"H:i" }}
-            fdadfas
           </small>
 
         </div>
@@ -19,6 +18,18 @@
       </div>
     </article>
 
+    <h2>{{post.comments.count}} comment(s) so far</h2>
+    {% for comment in object.comments.all %}
+    {% if comment.isApproved == True %}
+    <div class="comment-section">
+
+    <div class="comment-metadata">{{ comment.user }} on {{ comment.created }} </div>
+    <p>{{ comment.cmnt }}</p>
+
+    </div>
+    {% endif %}
+    {% endfor %}
+
       <h2>Add new Comment</h2>
       <form method='POST'>{% csrf_token %}
         {{ form.as_p }}
@@ -26,9 +37,6 @@
       </form>
 
 
-    <h2>Comments:</h2>
-    {% for comment in object.comments.all %}
-    <p>{{ comment.cmnt }} by {{ comment.user }}</p>
-    {% endfor %}
+
 
   {% endblock%}

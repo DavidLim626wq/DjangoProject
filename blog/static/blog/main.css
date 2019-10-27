@@ -46,6 +46,18 @@ ul {
   margin-bottom: 20px;
 }
 
+.comment-section {
+  background: #ffffff;
+  padding: 10px 10px;
+  border: 2px dotted #adadad;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.comment-metadata{
+  border-bottom: 1px solid #d2d2d2;
+}
+
 .article-title {
   color: #444444;
 }
