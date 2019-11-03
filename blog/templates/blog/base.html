@@ -59,6 +59,13 @@
     </div>
   </div>
 <div class="col-md-8">
+  {% if messages %}
+    {% for m in messages %}
+      <div class="alert alert-{{ message.tags }}" role="alert">
+        {{ m }}
+      </div>
+    {% endfor %}
+  {% endif %}
   {% block content %}{% endblock %}
 </div>
 

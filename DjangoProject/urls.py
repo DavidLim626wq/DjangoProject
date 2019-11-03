@@ -17,11 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from blog import views
+from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    path('posts/', views.PostList.as_view())
+    path('posts/', views.PostList.as_view()),
+    path('register/', user_views.register, name='register')
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
