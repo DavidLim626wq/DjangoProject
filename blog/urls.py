@@ -6,7 +6,7 @@ from users import views as user_views
 
 urlpatterns = [
     path('', PostListView.as_view(), name ='blog-home'),
-    path('post/<int:pk>/', PostPlusForm.as_view(), name="post-detail"),
+    path('post/<slug:slug>/', PostPlusForm.as_view(), name="post-detail"),
     path('about/', views.about, name ='blog-about'),
     path('posts/<int:pk>/', views.PostDetailJsonView.as_view(), name="post-json-detail"),
 ]
