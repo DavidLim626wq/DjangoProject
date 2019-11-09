@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
     <h1>Register for a New Account</h1>
     <p>江で型打カキ子決再する</p>
@@ -7,9 +8,10 @@
         {% csrf_token %}
         <fieldset class="form-group">
           <legend class="bottom-border mb-4">Join</legend>
-          {{ form.as_p }}
+          {{ form|crispy }}
+  
         </fieldset>
-        <button class="btn" type="submit">Sign up</button>
+        <button class="btn btn-outline-info" type="submit">Sign up</button>
       </form>
       <div class="border-top">Already signed up?  Sign in here.</div>
     </div>
