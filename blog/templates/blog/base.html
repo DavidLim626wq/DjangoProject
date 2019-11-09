@@ -34,8 +34,12 @@
         </div>
         <!-- Navbar Right Side -->
         <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/admin">Login</a>
-          <a class="nav-item nav-link" href="#">Register</a>
+          {% if user.is_authenticated %}
+          <span class="nav-item">Hello, {{user.username}}</span><a class="nav-item nav-link" href="/user_logout/">Logout</a>
+          {% else %}
+          <a class="nav-item nav-link" href="/user_login/">Login</a>
+          <a class="nav-item nav-link" href="/register">Register</a>
+          {% endif %}
         </div>
       </div>
     </div>

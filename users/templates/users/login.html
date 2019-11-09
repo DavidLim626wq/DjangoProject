@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>Login</h1>
+    <p>江で型打カキ子決再する</p>
+    <div class="content-section">
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="bottom-border mb-4">Login</legend>
+          {{ form|crispy }}
+        </fieldset>
+        <button class="btn btn-outline-info" type="submit">Login</button>
+      </form>
+    </div>
+{% endblock%}
