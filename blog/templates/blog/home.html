@@ -11,7 +11,7 @@
             Posted on {{ post.date_posted|date:"j-M-Y" }} at {{ post.date_posted|date:"H:i" }}
           </small>
         </div>
-        <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+        <h2><a class="article-title" href="{% url 'post-detail' post.slug %}">{{ post.title }}</a></h2>
 
 
         <button id="readmore_{{post.id}}" onclick="myFunction(this, {{ post.id }})" style="display:block">Read_More </button>
